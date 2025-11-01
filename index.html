@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>If I Rule The World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen flex items-center justify-center p-6">
+
+  <div id="container" class="max-w-xl w-full text-center p-8 bg-white rounded-xl shadow-2xl">
+    
+    <h4 id="mainHeader" class="text-4xl md:text-5xl font-extrabold mb-8 text-cyan-600">
+       Our motto: ...letting chaos lead
+    </h4>
+    
+    <p class="text-3xl font-medium mb-12">
+      Q1: Does your partner know you're gay?
+    </p>
+
+    <div id="questionBtns" class="flex justify-center gap-6">
+      <button id="yesBtn" class="px-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-lg rounded-full font-bold shadow-lg transform hover:scale-105 transition duration-200 ease-in-out text-white">
+        YES
+      </button>
+      <button id="noBtn" class="px-8 py-4 bg-gray-300 hover:bg-gray-400 text-lg rounded-full font-bold shadow-lg transform hover:scale-105 transition duration-200 ease-in-out text-gray-900">
+        NO
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    const TWITTER_HANDLE = "YourTwitterHandle"; 
+
+    const container = document.getElementById('container');
+    
+    const originalContent = `
+        <h4 id="mainHeader" class="text-4xl md:text-5xl font-extrabold mb-8 text-cyan-600">
+           Our motto: ...letting chaos lead
+        </h4>
+        <p class="text-3xl font-medium mb-12 text-gray-900">
+          Q1: Does your partner know you're gay?
+        </p>
+        <div id="questionBtns" class="flex justify-center gap-6">
+          <button id="yesBtn" class="px-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-lg rounded-full font-bold shadow-lg transform hover:scale-105 transition duration-200 ease-in-out text-white">
+            YES
+          </button>
+          <button id="noBtn" class="px-8 py-4 bg-gray-300 hover:bg-gray-400 text-lg rounded-full font-bold shadow-lg transform hover:scale-105 transition duration-200 ease-in-out text-gray-900">
+            NO
+          </button>
+        </div>
+    `;
+
+
+    const resultContent = `
+      <h1 class="text-4xl font-extrabold mb-4 text-orange-500">Chakam! 📸</h1>
+      <p class="text-xl mb-6 text-gray-900">You've just confessed to a secret. **Twitter is a very chaotic place. I have your response.**</p>
+      <p class="text-xl mb-8 font-semibold text-gray-900">Your silence can be purchased... with a follow **😁😘**</p>
+      <a href="https://x.com/_osahenru" target="_blank" rel="noopener"
+        style="display: inline-block; background: #000000; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem;"
+        class="shadow-lg hover:bg-gray-700 transition mb-6">
+        Buy My Silence
+      </a>
+      <button id="backBtn" class="px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-full font-bold shadow-lg transform hover:scale-105 transition duration-200 ease-in-out text-sm">
+          ← Back
+      </button>
+      <p style="font-size: 0.8em; opacity: 0.7; color: #4b5563;">(This is a joke. But is it, though?)</p>
+      <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.7; color: #4b5563;">Our Mission/Purpose: Making the world more chaotic than we met it</p>
+    `;
+    
+    const showResult = () => {
+        container.innerHTML = resultContent;
+        document.getElementById('backBtn').addEventListener('click', showOriginalQuestion);
+    };
+
+    const showOriginalQuestion = () => {
+        container.innerHTML = originalContent; 
+        
+        const newYesBtn = document.getElementById('yesBtn');
+        const newNoBtn = document.getElementById('noBtn');
+
+        if (newYesBtn && newNoBtn) {
+            newYesBtn.addEventListener('click', showResult);
+            newNoBtn.addEventListener('click', showResult);
+        }
+    };
+
+    const initialYesBtn = document.getElementById('yesBtn');
+    const initialNoBtn = document.getElementById('noBtn');
+
+    if (initialYesBtn && initialNoBtn) {
+        initialYesBtn.addEventListener('click', showResult);
+        initialNoBtn.addEventListener('click', showResult);
+    }
+  </script>
+</body>
+</html>
